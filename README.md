@@ -1,16 +1,6 @@
 # Getting Started
 
-Welcome to your new project.
-
-It contains these folders and files, following our recommended project layout:
-
-File or Folder | Purpose
----------|----------
-`app/` | content for UI frontends goes here
-`db/` | your domain models and data go here
-`srv/` | your service models and code go here
-`package.json` | project metadata and configuration
-`readme.md` | this getting started guide
+Welcome to your CAP / CDS Interview.
 
 
 ## Next Steps
@@ -23,3 +13,9 @@ File or Folder | Purpose
 ## Learn More
 
 Learn more at https://cap.cloud.sap/docs/get-started/.
+
+## Setup for the Interview
+- Use node Version 18.15 ideally
+- make sure the project runs and can be started via `cds watch`
+- The the implentation tasks that we will interview about are in the schema.cds file. Feel free to check them but don't implement anything yet
+- During the interview you are free to reference the official SAP CAP documentation
