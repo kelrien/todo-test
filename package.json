@@ -10,10 +10,12 @@
     "express": "^4"
   },
   "devDependencies": {
+    "@sap/ux-specification": "^1.108.14",
     "sqlite3": "^5"
   },
   "scripts": {
     "start": "cds-serve",
-    "watch": "cds watch"
+    "watch": "cds watch",
+    "watch-todo-viewer": "cds watch --open todo-viewer/webapp/index.html?sap-ui-xx-viewCache=false"
   }
 }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="TodoService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="Todos" EntityType="TodoService.Todos"/>
+                <EntitySet Name="Subtasks" EntityType="TodoService.Subtasks">
+                    <NavigationPropertyBinding Path="todo" Target="Todos"/>
+                </EntitySet>
+            </EntityContainer>
+            <EntityType Name="Todos">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="title" Type="Edm.String"/>
+                <Property Name="description" Type="Edm.String"/>
+                <Property Name="done" Type="Edm.Boolean"/>
+            </EntityType>
+            <EntityType Name="Subtasks">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <NavigationProperty Name="todo" Type="TodoService.Todos">
+                    <ReferentialConstraint Property="todo_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="todo_ID" Type="Edm.Guid"/>
+                <Property Name="title" Type="Edm.String"/>
+                <Property Name="description" Type="Edm.String"/>
+                <Property Name="done" Type="Edm.Boolean"/>
+            </EntityType>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
